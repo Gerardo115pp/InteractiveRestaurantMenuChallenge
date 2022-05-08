@@ -4,13 +4,11 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
-  },
-  "dependencies": {
+    "start": "live-server ./src"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0"
+    "@babel/core": "7.2.0",
+    "live-server": "^1.2.2"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"

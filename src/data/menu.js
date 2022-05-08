@@ -2,7 +2,7 @@ export const menudata = {
   breakfast: [
     {
       title: "buttermilk pancakes",
-      price: "$15",
+      price: "15",
       description: "Pancakes are awesome, no description needed!",
       image: "item-1"
     },
