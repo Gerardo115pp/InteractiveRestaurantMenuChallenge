@@ -1,0 +1,103 @@
+/*
+ 
+   ____  _     _               
+  |  _ \(_)___| |__   ___  ___ 
+  | | | | / __| '_ \ / _ \/ __|
+  | |_| | \__ \ | | |  __/\__ \
+  |____/|_|___/_| |_|\___||___/
+                               
+ 
+*/
+
+
+/*=============================================
+=            main container            =
+=============================================*/
+
+#store-items-container {
+    padding: 8vh 3vw;
+}
+
+#dishes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+/*=============================================
+=            Dish            =
+=============================================*/
+
+.dish-item {
+    display: flex;
+    width: 45%;
+    margin-bottom: 6vh;
+}
+
+/*----------  image  ----------*/
+
+.dish-item .dish-info-right-content {
+    width: 50%;
+}
+
+.dish-item img {
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 25vh;
+    border: 8px solid var(--goldbrown);
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/*----------  info container  ----------*/
+
+.dish-info-left-content {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 .5em;
+}
+
+
+/*----------  info header  ----------*/
+
+.di-left-upper-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--strong-dim);
+    padding: 0 0 .5em 0;
+}
+
+.di-left-upper-content p {
+    font-weight: bolder;
+    color: var(--goldbrown);
+    font-size: 1.2em;
+}
+
+/*----------  info description  ----------*/
+
+.di-left-lower-content {
+    box-sizing: border-box;
+    height: 18vh;
+    color: var(--dim-font);
+    padding: 2em .5em;
+}
+
+
+/*----------  actions  ----------*/
+
+.di-actions-container {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    color: var(--action);
+    padding: 0 .1em .5em;
+    font-size: 1.8em;
+}
+
+.di-actions-container:hover {
+    cursor: pointer;
+}
+
+

@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/styles.css" />
+
   </head>
 
   <body>
@@ -14,16 +15,16 @@
           <span class="eln-bt-pink-text">Express</span> Lunch Delivery
         </h4>
         <div id="eln-nav-sections">
-          <div id="eln-ns-all">
+          <div class="eln-ns-section" id="eln-ns-all">
             <h5>all</h5>
           </div>
-          <div id="eln-ns-breakfast">
+          <div class="eln-ns-section" id="eln-ns-breakfast">
             <h5>Breakfast</h5>
           </div>
-          <div id="eln-ns-lunch">
+          <div class="eln-ns-section" id="eln-ns-lunch">
             <h5>Lunch</h5>
           </div>
-          <div id="eln-ns-shakes">
+          <div class="eln-ns-section current" id="eln-ns-shakes">
             <h5>Shakes</h5>
           </div>
 
@@ -34,7 +35,7 @@
       </main>
     </div>
     <script>
-      let current_page = "lunch";
+      let current_page = "shakes";
       
     </script>
     <script src="/js/store.js" defer type="module"></script>

@@ -11,6 +11,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,500&display=swap');
 @import url('/styles/NavBar.css');
+@import url('/styles/dishes.css');
 
 /*
     
@@ -37,6 +38,7 @@
   --express: #EB4688;
   --action: #AAA854;
   --dim-font: #6C8099;
+  --strong-dim: #AED4F5;
 
 }
 
@@ -46,6 +48,15 @@
 =============================================*/
 
 body {
+  font-family: 'open sans', sans-serif;
+  margin: 0;
+  color: var(--strong-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}

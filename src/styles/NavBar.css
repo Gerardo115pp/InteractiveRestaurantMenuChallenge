@@ -17,8 +17,9 @@
     font-family: 'open sans', sans-serif;
     display: flex;
     justify-content: space-between;
-    padding: .1vh vw;
-    border: 1px solid #172940;
+    align-items: center;
+    padding: 1.8vh 2.5vw;
+    box-shadow: 0 0 2vh .5vh rgba(0, 0, 0, 0.1);
 }
 
 
@@ -27,11 +28,45 @@
 =============================================*/
 
 #eln-brand-title {
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 
+#eln-brand-title span {
+    font-weight: bolder;
+    font-style: italic;
+    color: var(--express);
+}
+
+/*=============================================
+=            sections(nav routes)            =
+=============================================*/
+
 #eln-nav-sections {
+    width: 50%;
     display: flex;
+    justify-content: flex-end;
+    color: var(--goldbrown);
+}
+
+.eln-ns-section {
+    margin-right: 2rem;
+    padding: .3em .8em;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.eln-ns-section:hover {
+    cursor: pointer;
+}
+
+.eln-ns-section h5 {
+    text-transform: capitalize;
+
+}
+
+.eln-ns-section.current {
+    background: var(--goldbrown);
+    color: var(--nav-background);
 }
 
 
