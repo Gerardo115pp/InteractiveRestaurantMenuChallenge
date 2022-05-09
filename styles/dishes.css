@@ -51,7 +51,7 @@
     box-sizing: border-box;
     width: 100%;
     max-height: 25vh;
-    border: 8px solid var(--goldbrown);
+    border: 5px solid var(--goldbrown);
     border-radius: 5px;
     object-fit: cover;
 }
@@ -109,5 +109,21 @@
 .di-actions-container:hover {
     cursor: pointer;
 }
+
+
+/*=============================================
+=            Responsive            =
+=============================================*/
+
+@media only screen and (max-width: 600px) {
+    #store-items-container {
+        padding: 8vh 3vw calc(3vh + var(--cart-height)) 3vw;
+    }
+
+    .dish-item {
+        width: 90%;
+    }
+}
+
 
 
