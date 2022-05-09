@@ -1,13 +1,13 @@
+let last_dish_id = 0
 class Dish {
-    static id = 0;
 
     constructor(dish_object) {
-        this.id = Dish.id+1;
+        this.id = last_dish_id+1;
         this.name = dish_object.title;
         this.price = parseFloat(dish_object.price);
         this.description = dish_object.description;
         this.image = `${dish_object.image}.jpg`;
-        Dish.id = this.id;
+        last_dish_id++;
     }
 
     get ID() {

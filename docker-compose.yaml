@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  nginx_service:
+    image: defalt115/pefai-challenge:v1
+    ports:
+      - "80:80"
+
+  

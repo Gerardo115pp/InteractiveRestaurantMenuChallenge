@@ -53,6 +53,10 @@
 =            Normalize            =
 =============================================*/
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'open sans', sans-serif;
   overflow-y: hidden;

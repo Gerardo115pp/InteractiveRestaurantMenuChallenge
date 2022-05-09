@@ -4,11 +4,21 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "live-server ./src"
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "live-server": "^1.2.2"
+    "@babel/core": "^7.2.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.17.10",
+    "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^10.2.4",
+    "html-webpack-plugin": "^5.5.0",
+    "live-server": "^1.2.2",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"

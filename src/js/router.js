@@ -1,5 +1,5 @@
-import Store from "/js/store.js";
-import DishAppEvents from "/js/events.js";
+import Store from "./store.js";
+import DishAppEvents from "./events.js";
 
 export const routes = [
     {

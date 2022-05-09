@@ -1,4 +1,4 @@
-import { menudata } from "/data/menu.js";
+import { menudata } from "../data/menu.js";
 class Store {
     constructor() {
         this.state = {
