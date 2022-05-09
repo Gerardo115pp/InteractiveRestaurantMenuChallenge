@@ -18,8 +18,10 @@ function routeClickHandler() {
     console.log(`Routing to ${this.route_name}`);
     this.router.updateNavbarCurrentRoute(this.link_element_id);
     let event = new CustomEvent(DishAppEvents.ROUTE_CHANGED, {
-        detail: this.route_name,
-        items: this.router.getCurrentRouteItems()
+        detail: {
+            name: this.route_name,
+            items: this.router.getCurrentRouteItems()
+        }
     });
     document.dispatchEvent(event);
 }

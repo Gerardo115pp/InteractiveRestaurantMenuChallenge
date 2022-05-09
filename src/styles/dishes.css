@@ -100,10 +100,10 @@
 .di-actions-container {
     display: flex;
     justify-content: flex-end;
-    font-weight: bold;
+    font-weight: bolder;
     color: var(--action);
     padding: 0 .1em .5em;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 .di-actions-container:hover {

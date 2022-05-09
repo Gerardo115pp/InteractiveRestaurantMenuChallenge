@@ -10,6 +10,7 @@ class Cart {
     }
 
     addItem = dish_object => {
+
         if (!this.cart_items[dish_object.name]) {
             this.cart_items[dish_object.name] = {
                 count: 0,// will be incremented by 1 after if block
@@ -17,10 +18,14 @@ class Cart {
             }   
         }
         this.cart_items[dish_object.name].count++;
-        console.log(dish_object);
+
+        // save all items to local storage
         Store.writeToGeneric({ owner: "CART", field: "CART_ITEMS", value: this.cart_items});
+        
+        // updates component on the DOM.
         this.updateComponent();
     }
+    
     createCartItemTile = () => {
         const cart_title = document.createElement("h3");
         cart_title.innerText = "Order Details";
@@ -42,7 +47,7 @@ class Cart {
 
 
     createCartItemContent = () => {
-        const cart_content_and_total = document.createDocumentFragment();
+        const cart_content_and_total = document.createDocumentFragment(); 
         const cart_content = document.createElement("div");
         cart_content.id = "cart-content";
 
@@ -51,7 +56,9 @@ class Cart {
             currency: 'MXN',
             minimumFractionDigits: 2
         });
-        let order_total_cost = 0.0
+
+        let order_total_cost = 0.0;
+
         for (let item_name of Object.keys(this.cart_items)) {
             let total_cost = this.cart_items[item_name].count * this.cart_items[item_name].price;
             let cart_item = document.createElement("div");
