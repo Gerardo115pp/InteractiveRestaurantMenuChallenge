@@ -26,7 +26,7 @@ class Dish {
         dish_container.classList.add("dish-item");
         dish_container.innerHTML = `
             <div class="dish-info-right-content">
-                <img src="/assets/${this.image}" alt="${this.name}">
+                <img src="assets/${this.image}" alt="${this.name}">
             </div>
             <div class="dish-info-left-content">
                 <div class="di-left-upper-content">
