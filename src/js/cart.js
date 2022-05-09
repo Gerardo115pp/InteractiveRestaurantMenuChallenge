@@ -21,34 +21,30 @@ class Cart {
         Store.writeToGeneric({ owner: "CART", field: "CART_ITEMS", value: this.cart_items});
         this.updateComponent();
     }
-
-    draw  = () => {
-        const mount_point = "cart-container";
-        const cart_container = document.createElement("div");
-        cart_container.id = "cart-component";
-
-        
-        
-        /*----------  Title  ----------*/
+    createCartItemTile = () => {
         const cart_title = document.createElement("h3");
         cart_title.innerText = "Order Details";
         cart_title.id = "cart-title";
-        cart_container.appendChild(cart_title);
-
         
-        /*----------  SearchBar  ----------*/
+        return cart_title;
+    }
+
+    createCartItemSearchBar = () => {
         const cart_search_bar = document.createElement("div");
         cart_search_bar.id = "cart-search-bar-container";
         cart_search_bar.innerHTML = `
             <input type="text" id="cart-search-bar" />
             <div id="cart-search-bar-btn">Add</div>
         `;
-        cart_container.appendChild(cart_search_bar);
 
-        /*----------  Cart Content  ----------*/
+        return cart_search_bar;
+    }
+
+
+    createCartItemContent = () => {
+        const cart_content_and_total = document.createDocumentFragment();
         const cart_content = document.createElement("div");
         cart_content.id = "cart-content";
-        let cart_content_html = "";
 
         let price_formatter = new Intl.NumberFormat('es-MX', {
             style: 'currency',
@@ -58,18 +54,30 @@ class Cart {
         let order_total_cost = 0.0
         for (let item_name of Object.keys(this.cart_items)) {
             let total_cost = this.cart_items[item_name].count * this.cart_items[item_name].price;
-            cart_content_html += `
-                <div class="cart-item">
-                    <span class="cart-item-label">${item_name} (${this.cart_items[item_name].count || "Wierd"}) ${price_formatter.format(this.cart_items[item_name].price)}c/u</span>
-                    <span class="cart-item-total">${price_formatter.format(this.cart_items[item_name].count * this.cart_items[item_name].price)}</span>
-                    <span class="material-symbols-outlined cart-item-remove-btn">delete_forever</span>
-                </div>
-            `;
+            let cart_item = document.createElement("div");
+            cart_item.classList.add("cart-item");
+
+            let cart_label = document.createElement("span");
+            cart_label.classList.add("cart-item-label");
+            cart_label.innerText = `${item_name} (${this.cart_items[item_name].count || "Wierd"}) ${price_formatter.format(this.cart_items[item_name].price)}c/u`;
+            cart_item.appendChild(cart_label);
+
+            let cart_item_total = document.createElement("span");
+            cart_item_total.classList.add("cart-item-total");
+            cart_item_total.innerText = `${price_formatter.format(this.cart_items[item_name].count * this.cart_items[item_name].price)}`;
+            cart_item.appendChild(cart_item_total);
+
+            let cart_item_remove = document.createElement("span");
+            cart_item_remove.classList.add(...["material-symbols-outlined", "cart-item-remove-btn"]);
+            cart_item_remove.innerText = "delete_forever";
+            cart_item_remove.onclick = () => this.removeItem(item_name);
+            cart_item.appendChild(cart_item_remove);
+
+            cart_content.appendChild(cart_item);
             order_total_cost += total_cost;
         }
-        cart_content.innerHTML = cart_content_html;
 
-        cart_container.appendChild(cart_content);
+        cart_content_and_total.appendChild(cart_content);
 
         /*----------  Order Total  ----------*/
         const cart_total = document.createElement("div");
@@ -78,10 +86,12 @@ class Cart {
             <span>Total:</span>
             <span>${price_formatter.format(order_total_cost)}</span>
         `;
+        cart_content_and_total.appendChild(cart_total);
 
-        cart_container.appendChild(cart_total);
+        return cart_content_and_total;
+    }
 
-        /*----------  Order Actions  ----------*/
+    createCartActions = () => {
         const cart_actions = document.createElement("div");
         cart_actions.id = "cart-actions-container";
         const place_order_btn = document.createElement("div");
@@ -97,6 +107,29 @@ class Cart {
         clear_cart_btn.onclick = this.resetItems;
         cart_actions.appendChild(clear_cart_btn);
 
+        return cart_actions;
+    }
+
+    draw  = () => {
+        const mount_point = "cart-container";
+        const cart_container = document.createElement("div");
+        cart_container.id = "cart-component";
+                
+        /*----------  Title  ----------*/
+        const cart_title = this.createCartItemTile();
+        cart_container.appendChild(cart_title);
+
+        
+        /*----------  SearchBar  ----------*/
+        const cart_search_bar = this.createCartItemSearchBar();
+        cart_container.appendChild(cart_search_bar);
+
+        /*----------  Cart Content  ----------*/
+        const cart_content_and_total = this.createCartItemContent();
+        cart_container.appendChild(cart_content_and_total);
+
+        /*----------  Order Actions  ----------*/
+        const cart_actions = this.createCartActions();
         cart_container.appendChild(cart_actions);
 
         /*----------  Append to DOM  ----------*/
@@ -112,6 +145,16 @@ class Cart {
     resetItems = () => { 
         this.cart_items = {};
         Store.writeToGeneric({ owner: "CART", field: "CART_ITEMS", value: this.cart_items});
+        this.updateComponent();
+    }
+
+    removeItem = (item_name) => {
+        console.log("removing item", item_name);
+        console.log("this.cart_items", this.cart_items);
+        if (this.cart_items[item_name]) { 
+            delete this.cart_items[item_name];
+            Store.writeToGeneric({ owner: "CART", field: "CART_ITEMS", value: this.cart_items});
+        }
         this.updateComponent();
     }
 

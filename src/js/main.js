@@ -2,7 +2,6 @@ import Router from "./router.js";
 import Dish from "./classes/dish.js";
 import DishAppEvents from "./events.js";
 
-
 const dishAddHandler = dish_object => {
     let event = new CustomEvent(DishAppEvents.ITEM_ADDED_TO_CART, {
         detail: {
@@ -14,6 +13,14 @@ const dishAddHandler = dish_object => {
 
     document.dispatchEvent(event);
 }
+
+class Menu {
+    constructor() {
+    
+    }
+}
+
+
 
 
 const createAndMountDishes = () => {
