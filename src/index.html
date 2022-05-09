@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/styles.css" />
 
+    <!-- Single Trash Icon -->
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
   </head>
 
   <body>
@@ -24,7 +28,7 @@
           <div class="eln-ns-section" id="eln-ns-lunch">
             <h5>Lunch</h5>
           </div>
-          <div class="eln-ns-section current" id="eln-ns-shakes">
+          <div class="eln-ns-section" id="eln-ns-shakes">
             <h5>Shakes</h5>
           </div>
 
@@ -33,12 +37,12 @@
       <main id="store-items-container">
         
       </main>
+      <div id="cart-container">
+      </div>
     </div>
-    <script>
-      let current_page = "shakes";
-      
-    </script>
-    <script src="/js/store.js" defer type="module"></script>
+    <script src="/js/store.js" type="module"></script>
+    <script src="/js/cart.js" type="module"></script>
+    <script src="/js/router.js" type="module"></script>
     <script src="/js/main.js" type="module"></script>
   </body>
 </html>

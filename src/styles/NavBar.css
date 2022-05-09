@@ -14,12 +14,19 @@
 =            main container            =
 =============================================*/
 #express-lunch-navbar {
+    box-sizing: border-box;
     font-family: 'open sans', sans-serif;
+    position: fixed;
+    width: 100%;
+    height: var(--nav-height);
     display: flex;
+    background-color: var(--nav-background);
     justify-content: space-between;
     align-items: center;
     padding: 1.8vh 2.5vw;
+    top: 0;
     box-shadow: 0 0 2vh .5vh rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 

@@ -5,7 +5,6 @@ class Dish {
         this.id = Dish.id+1;
         this.name = dish_object.title;
         this.price = parseFloat(dish_object.price);
-        console.log(this.price);
         this.description = dish_object.description;
         this.image = `${dish_object.image}.jpg`;
         Dish.id = this.id;
