@@ -151,6 +151,22 @@
 }
 
 
+/*=============================================
+=            Responsive            =
+=============================================*/
+
+@media only screen and (max-width: 600px) {
+    #cart-container {
+        left: 10%;
+    }
+
+    #cart-component {
+        width: 80vw;
+    }
+}
+
+
+
 
 
 

@@ -46,6 +46,7 @@
   /* sizes */
   --nav-height: 9vh;
   --main-content-height: calc(100vh - var(--nav-height));
+  --cart-height: 32vh;
 }
 
 
@@ -71,4 +72,10 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
 }
